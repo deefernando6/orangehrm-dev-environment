@@ -1,0 +1,15 @@
+version: '2.2'
+services:
+  ai_service:
+    image: orangehrm/ai_services:version1
+    build: ./custom-compose/ai_service/
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./../../html/ai_service:/ai_service
+    privileged: true
+    networks:
+      ohrmdevnet:
+        ipv4_address: 10.5.0.198
+    container_name: dev_ai_services    
+
